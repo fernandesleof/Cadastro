@@ -1,0 +1,205 @@
+﻿@model AplicacaoTeste.Models.PessoaJuridica
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro</title>
+
+    <!-- Vendor CSS -->
+    <link href="~/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/nouislider/distribute/jquery.nouislider.min.css" rel="stylesheet">
+    <link href="~/vendors/farbtastic/farbtastic.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/chosen/chosen.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="~/css/app.min.1.css" rel="stylesheet">
+    <link href="~/css/app.min.2.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+    <header id="header" class="clearfix" data-current-skin="blue">
+        <ul class="header-inner">
+            <li class="logo hidden-xs">
+                <a href="index.html">Cadastro Contato</a>
+            </li>
+        </ul>
+
+    </header>
+
+    <section id="main">
+
+        <section id="content">
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>
+                            <small> Digite os dados, e para concluir o cadastro clique em "Salvar".</small>
+                        </h2>
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <form role="form" action="/pessoa/create" method="post">
+
+                            <div class="card-body card-padding">
+                                <div role="tabpanel">
+                                    <ul class="tab-nav" role="tablist">
+                                        <li class="active"><a href="#juridica" aria-controls="juridica" role="tab" data-toggle="tab">Pessoa Juridica</a></li>
+                                        <li><a href="#fisica" aria-controls="fisica" role="tab" data-toggle="tab">Pessoa Fisica</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="juridica">
+                                            <div class="form-group fg-line">
+                                                <label>Razão Social</label>
+                                                <input type="text" class="form-control input-sm" name="razaosocial">
+                                            </div>
+                                            <div class="form-group fg-line">
+                                                <label>Nome Fantasia</label>
+                                                <input type="text" class="form-control input-sm" name="nomefantasia">
+                                            </div>
+                                            <div class="col-sm-3 m-b-20">
+                                                <label>CNPJ</label>
+                                                <input type="text" class="form-control input-mask" data-mask="00.000.000/0000-00" placeholder="ex: 00.000.000/0000-00" name="cnpj">
+                                            </div>
+                                            <br /><br /><br />
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="fisica">
+                                            <div class="form-group fg-line">
+                                                <label>Nome</label>
+                                                <input type="text" class="form-control input-sm" name="nome">
+                                            </div>
+                                            <div class="form-group fg-line">
+                                                <label>Sobrenome</label>
+                                                <input type="text" class="form-control input-sm" name="sobrenome">
+                                            </div>
+                                            <div class="col-sm-3 m-b-20">
+                                                <div class="form-group fg-line">
+                                                    <label>CPF</label>
+                                                    <input type="text" class="form-control input-mask" data-mask="000.000.000-00" placeholder="ex: 000.000.000-00" name="cpf">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 m-b-20">
+                                                <label>Data de Nascimento</label>
+                                                <input type="text" class="form-control input-mask" data-mask="00/00" placeholder="ex: 01/01" name="datanascimento">
+                                            </div>
+                                            <div class="col-sm-3 m-b-20">
+                                                <label>Ano de Nascimento</label>
+                                                <input type="number" class="form-control input-mask" data-mask="0000" placeholder="ex: 2019" name="anonascimento" max="2000">
+                                            </div>
+                                            <br /><br /><br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Pessoa-->
+                            <div class="col-sm-3 m-b-10">
+                                <div class="form-group fg-line">
+                                    <label>CEP</label>
+                                    <input type="text" class="form-control input-mask" data-mask="00000-000" placeholder="ex: 00000-000" name="cep" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-7 m-b-10">
+                                <div class="form-group fg-line">
+                                    <label>Endereço</label>
+                                    <input type="text" class="form-control input-sm" name="logradouro" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 m-b-10">
+                                <div class="form-group fg-line">
+                                    <label>Numero</label>
+                                    <input type="number" class="form-control input-sm" name="numero" required>
+                                </div>
+                            </div>
+                            <br /><br /><br /><br /><br />
+                            <div class="col-sm-12 m-b-10">
+                                <div class="form-group fg-line">
+                                    <label>Complemento</label>
+                                    <input type="text" class="form-control input-sm" name="complemento">
+                                </div>
+                                <div class="form-group fg-line">
+                                    <label>Bairro</label>
+                                    <input type="text" class="form-control input-sm" name="bairro" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 m-b-10">
+                                <div class="form-group fg-line">
+                                    <label>Cidade</label>
+                                    <input type="text" class="form-control input-sm" name="cidade" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 m-b-10">
+                                <div class="form-group fg-line">
+                                    <label>UF</label>
+                                    <div class="select">
+                                        <select class="form-control" name="uf">
+                                            <option value="SP">São Paulo</option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceara</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espirito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraiba</option>
+                                            <option value="PR">Parana</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="TO">Tocantins</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary btn-sm m-t-10">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </section>
+
+    <!-- Javascript Libraries -->
+    <script src="~/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="~/vendors/bower_components/chosen/chosen.jquery.min.js"></script>
+    <script src="~/vendors/fileinput/fileinput.min.js"></script>
+    <script src="~/vendors/input-mask/input-mask.min.js"></script>
+    <script src="~/vendors/farbtastic/farbtastic.min.js"></script>
+
+    <script src="~/js/functions.js"></script>
+    <script src="~/js/demo.js"></script>
+
+
+</body>
+</html>
